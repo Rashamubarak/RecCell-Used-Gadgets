@@ -23,17 +23,7 @@ const Footer = () => {
             <p className="text-gray-500 text-sm max-w-xs leading-relaxed">
               Premium pre-owned tech at unbeatable prices. Every device certified, tested & backed with warranty.
             </p>
-            <div className="flex gap-3 mt-6">
-              <a href="#" className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-blue-500/20 hover:text-blue-400 transition-all duration-300 hover:scale-110 border border-white/5 text-xl">
-                📸
-              </a>
-              <a href="#" className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-blue-500/20 hover:text-blue-400 transition-all duration-300 hover:scale-110 border border-white/5 text-xl">
-                🐦
-              </a>
-              <a href="#" className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-blue-500/20 hover:text-blue-400 transition-all duration-300 hover:scale-110 border border-white/5 text-xl">
-                ▶️
-              </a>
-            </div>
+           
           </div>
           
           {/* Quick Links */}

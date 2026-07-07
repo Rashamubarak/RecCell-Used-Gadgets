@@ -129,7 +129,7 @@ const Shop = () => {
   return (
     <div className="container-custom">
       <div className="flex items-center justify-between mt-6 mb-6">
-        <h1 className="text-3xl font-bold text-white">🛍️ Shop</h1>
+       <h1 className="text-3xl font-bold text-blue-400">🛍️ Shop</h1>
         <button
           onClick={() => setShowFilters(!showFilters)}
           className="lg:hidden flex items-center gap-2 bg-white/10 text-white px-4 py-2 rounded-full border border-white/10 hover:bg-white/20 transition-all duration-300"
@@ -153,7 +153,7 @@ const Shop = () => {
           <div className="space-y-8">
             {/* Category Filter - With Icons */}
             <div>
-              <h3 className="font-semibold text-white mb-4 text-lg border-b border-white/10 pb-2 flex items-center gap-2">
+              <h3 className="font-semibold text-blue-400 mb-4 text-lg border-b border-white/10 pb-2 flex items-center gap-2">
                 <Folder size={18} className="text-blue-400" />
                 Category
               </h3>
@@ -192,7 +192,7 @@ const Shop = () => {
 
             {/* Price Range Filter - With Icons */}
             <div>
-              <h3 className="font-semibold text-white mb-4 text-lg border-b border-white/10 pb-2 flex items-center gap-2">
+              <h3 className="font-semibold text-blue-400 mb-4 text-lg border-b border-white/10 pb-2 flex items-center gap-2">
                 <DollarSign size={18} className="text-purple-400" />
                 Price Range
               </h3>
@@ -237,7 +237,7 @@ const Shop = () => {
 
             {/* Condition Filter - With Icons */}
             <div>
-              <h3 className="font-semibold text-white mb-4 text-lg border-b border-white/10 pb-2 flex items-center gap-2">
+              <h3 className="font-semibold text-blue-400 mb-4 text-lg border-b border-white/10 pb-2 flex items-center gap-2">
                 <CheckCircle size={18} className="text-green-400" />
                 Condition
               </h3>
