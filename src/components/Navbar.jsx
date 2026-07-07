@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { 
-  Store, 
   ShoppingCart, 
   Heart, 
   User, 
@@ -18,7 +17,7 @@ const Navbar = () => {
   const { getCartCount } = useCarts();
   const cartCount = getCartCount();
 
-  // ✅ Close menu when scrolling
+  // Close menu when scrolling
   useEffect(() => {
     const handleScroll = () => {
       if (isMenuOpen) {
@@ -27,12 +26,10 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    
-    // ✅ Clean up event listener
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMenuOpen]); // ✅ depends on isMenuOpen
+  }, [isMenuOpen]);
 
-  // ✅ Close menu when window is resized to desktop
+  // Close menu when window is resized to desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768 && isMenuOpen) {
@@ -44,7 +41,7 @@ const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, [isMenuOpen]);
 
-  // ✅ Close menu when clicking outside (optional)
+  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (isMenuOpen) {
@@ -61,15 +58,15 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className="bg-white/80 backdrop-blur-lg border-b border-gray-200/50 sticky top-0 z-50 shadow-lg">
+    <nav className="bg-[#0a0a1a]/95 backdrop-blur-xl border-b border-white/5 sticky top-0 z-50 shadow-lg">
       <div className="container-custom">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 text-2xl font-bold group">
             <div className="relative">
-              <Zap className="text-blue-500 w-8 h-8 group-hover:rotate-12 transition-transform duration-300" />
+              <Zap className="text-blue-400 w-8 h-8 group-hover:rotate-12 transition-transform duration-300" />
             </div>
-            <span className="text-slate-900">Rec<span className="text-blue-500">Cell</span></span>
+            <span className="text-white">Rec<span className="text-blue-400">Cell</span></span>
           </Link>
 
           {/* Desktop Search */}
@@ -77,11 +74,11 @@ const Navbar = () => {
             <SearchBar />
           </div>
 
-          {/* Desktop Actions */}
+          {/* Desktop Actions - DARK THEME */}
           <div className="hidden md:flex items-center gap-2">
             <Link 
               to="/wishlist" 
-              className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-blue-500 rounded-xl hover:bg-blue-50 transition-all duration-300 group"
+              className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-blue-400 rounded-xl hover:bg-white/5 transition-all duration-300 group"
             >
               <Heart size={20} className="group-hover:scale-110 transition-transform" />
               <span className="text-sm font-medium">Wishlist</span>
@@ -89,7 +86,7 @@ const Navbar = () => {
             
             <Link 
               to="/cart" 
-              className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-blue-500 rounded-xl hover:bg-blue-50 transition-all duration-300 group relative"
+              className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-blue-400 rounded-xl hover:bg-white/5 transition-all duration-300 group relative"
             >
               <ShoppingCart size={20} className="group-hover:scale-110 transition-transform" />
               <span className="text-sm font-medium">Cart</span>
@@ -111,7 +108,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden p-3 hover:bg-gray-100 rounded-xl transition-all duration-300 menu-button"
+            className="md:hidden p-3 hover:bg-white/5 rounded-xl transition-all duration-300 menu-button text-gray-300 hover:text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -125,27 +122,27 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - DARK THEME */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-200/50 px-4 py-6 shadow-lg mobile-menu">
+        <div className="md:hidden bg-[#0a0a1a]/95 backdrop-blur-xl border-t border-white/5 px-4 py-6 shadow-lg mobile-menu">
           <div className="flex flex-col gap-3">
             <Link 
               to="/shop" 
-              className="flex items-center gap-3 px-4 py-3 text-gray-600 hover:text-blue-500 hover:bg-blue-50 rounded-xl transition-all duration-300"
+              className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-blue-400 hover:bg-white/5 rounded-xl transition-all duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
               <Search size={20} /> Shop
             </Link>
             <Link 
               to="/wishlist" 
-              className="flex items-center gap-3 px-4 py-3 text-gray-600 hover:text-blue-500 hover:bg-blue-50 rounded-xl transition-all duration-300"
+              className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-blue-400 hover:bg-white/5 rounded-xl transition-all duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
               <Heart size={20} /> Wishlist
             </Link>
             <Link 
               to="/cart" 
-              className="flex items-center gap-3 px-4 py-3 text-gray-600 hover:text-blue-500 hover:bg-blue-50 rounded-xl transition-all duration-300"
+              className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-blue-400 hover:bg-white/5 rounded-xl transition-all duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
               <ShoppingCart size={20} /> Cart ({cartCount})
